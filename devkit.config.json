@@ -26,7 +26,7 @@
         "payments"
     ],
     "paths":{
-        "database":{
+        "db-orm":{
             "config": ".",
             "client": "db/drizzle.ts",
             "schema": "db/schema.ts"
