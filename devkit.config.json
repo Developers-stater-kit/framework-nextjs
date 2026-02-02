@@ -1,11 +1,7 @@
 {
     "config": {
         "type": "framework",
-        "version": "1.0.0",
-        "scope": "build-time"
-    },
-    "framework": {
-        "id": "nextjs",
+        "key": "nextjs",
         "name": "Nextjs",
         "version": "16.1.4",
         "router": "app",
@@ -22,70 +18,18 @@
         "page": "app/page.tsx",
         "apiRoot": "app/api",
         "middleware": "middleware.ts",
-        "providersDir": "components/providers",
         "envExample": ".env.example"
     },
-    "capabilities": {
-        "authentication": {
-            "enabled": true,
-            "providerWrap": true,
-            "apiRoutes": true,
-            "middleware": true
-        },
-        "database": {
-            "enabled": true
-        },
-        "payments": {
-            "enabled": false
-        },
-        "order": [
-            "database",
-            "authentication",
-            "payments"
-        ]
-    },
-    "compatibility": {
-        "authentication": {
-            "allowedProviders": [
-                "betterauth",
-                "auth0"
-            ]
-        },
-        "database": {
-            "allowedOrms": [
-                "prisma",
-                "drizzle"
-            ],
-            "allowedDbTypes": [
-                "postgresql"
-            ]
+    "mergerOrder": [
+        "database",
+        "authentication",
+        "payments"
+    ],
+    "paths":{
+        "database":{
+            "config": ".",
+            "client": "db/drizzle.ts",
+            "schema": "db/schema.ts"
         }
-    },
-    "env": {
-        "file": ".env",
-        "exampleFile": ".env.example",
-        "mode": "merge"
-    },
-    "anchors": {
-        "authProvider": {
-            "file": "app/layout.tsx",
-            "marker": "/* ANCHOR:auth-provider */"
-        },
-        "apiSetup": {
-            "file": "app/api/route.ts",
-            "marker": "// ANCHOR:api-setup"
-        },
-        "middleware": {
-            "file": "middleware.ts",
-            "marker": "// ANCHOR:middleware"
-        },
-        "database": {
-            "file": "lib/db.ts",
-            "marker": "// ANCHOR:db-client"
-        }
-    },
-    "cleanup": {
-        "removeAnchors": true,
-        "removeConfigFiles": true
     }
 }
