@@ -2,10 +2,7 @@
     "config": {
         "type": "framework",
         "key": "nextjs",
-        "name": "Nextjs",
-        "version": "16.1.4",
         "router": "app",
-        "directory": "app",
         "typescript": true,
         "tailwindcss": true
     },
@@ -14,22 +11,38 @@
         "branch": "base"
     },
     "structure": {
-        "layout": "app/layout.tsx",
-        "page": "app/page.tsx",
-        "apiRoot": "app/api",
-        "middleware": "middleware.ts",
-        "envExample": ".env.example"
+        "src": {
+            "layout": "src/app/layout.tsx",
+            "page": "src/app/page.tsx",
+            "apiRoot": "src/app/api",
+            "middleware": "src/middleware.ts",
+            "envExample": ".env.example"
+        },
+        "app": {
+            "layout": "app/layout.tsx",
+            "page": "app/page.tsx",
+            "apiRoot": "app/api",
+            "middleware": "middleware.ts",
+            "envExample": ".env.example"
+        }
     },
     "mergerOrder": [
-        "database",
+        "db-orm",
         "authentication",
         "payments"
     ],
-    "paths":{
-        "db-orm":{
-            "config": ".",
-            "client": "db/drizzle.ts",
-            "schema": "db/schema.ts"
+    "paths": {
+        "db-orm": {
+            "src": {
+                "config": ".",
+                "client": "src/db/<client>",
+                "schema": "src/db/<schema>"
+            },
+            "app": {
+                "config": ".",
+                "client": "db/<client>",
+                "schema": "db/<schema>"
+            }
         }
     }
 }
