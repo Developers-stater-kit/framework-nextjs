@@ -16,20 +16,11 @@
         "devDependencies": []
     },
     "structure": {
-        "src": {
-            "layout": "src/app/layout.tsx",
-            "page": "src/app/page.tsx",
-            "apiRoot": "src/app/api",
-            "middleware": "src/middleware.ts",
-            "envExample": ".env.example"
-        },
-        "app": {
-            "layout": "app/layout.tsx",
-            "page": "app/page.tsx",
-            "apiRoot": "app/api",
-            "middleware": "middleware.ts",
-            "envExample": ".env.example"
-        }
+        "layout": "src/app/layout.tsx",
+        "page": "src/app/page.tsx",
+        "apiRoot": "src/app/api",
+        "middleware": "src/middleware.ts",
+        "envExample": ".env.example"
     },
     "mergerOrder": [
         "db-orm",
@@ -38,16 +29,9 @@
     ],
     "paths": {
         "db-orm": {
-            "src": {
-                "config": ".",
-                "client": "src/db/<client>",
-                "schema": "src/db/<schema>"
-            },
-            "app": {
-                "config": ".",
-                "client": "db/<client>",
-                "schema": "db/<schema>"
-            }
+            "config": ".",
+            "client": "src/db/<client>",
+            "schema": "src/db/<schema>"
         }
     }
 }
