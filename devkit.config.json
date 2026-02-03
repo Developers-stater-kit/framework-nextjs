@@ -10,6 +10,11 @@
         "name": "framework-nextjs",
         "branch": "base"
     },
+    "metadata": {
+        "envVars": [],
+        "dependencies": [],
+        "devDependencies": []
+    },
     "structure": {
         "src": {
             "layout": "src/app/layout.tsx",
