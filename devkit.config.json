@@ -22,21 +22,21 @@
         "lib": "src/lib",
         "components": "src/components",
         "apiRoot": "src/app/api",
-        "middleware": "./proxy.ts",
+        "middleware": ".",
         "envExample": "./.env.example"
     },
     "paths": {
         "db-orm": {
             "config": ".",
-            "client": "<db>/<client>",
-            "schema": "<db>/<schema>"
+            "client": "<db>/",
+            "schema": "<db>/"
         },
         "authentication": {
-            "server": "<lib>/auth.ts",
-            "client": "<lib>/auth.client.ts",
-            "api": "<apiRoot>/auth/[...all]/route.ts",
+            "server": "<lib>/",
+            "client": "<lib>/",
+            "api": "<apiRoot>/auth/[...all]/",
             "middleware": "<middleware>",
-            "ui": "<components>/auth"
+            "ui": "<components>/auth/"
         }
     },
     "mergerOrder": [
