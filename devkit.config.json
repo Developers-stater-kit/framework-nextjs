@@ -1,7 +1,7 @@
 {
+    "type": "framework",
+    "package": "nextjs",
     "config": {
-        "type": "framework",
-        "key": "nextjs",
         "router": "app",
         "typescript": true,
         "tailwindcss": true
@@ -16,22 +16,32 @@
         "devDependencies": []
     },
     "structure": {
-        "layout": "src/app/layout.tsx",
-        "page": "src/app/page.tsx",
+        "app": "src/app",
+        "db": "src/db",
+        "utils": "src/utils",
+        "lib": "src/lib",
+        "components": "src/components",
         "apiRoot": "src/app/api",
-        "middleware": "src/middleware.ts",
-        "envExample": ".env.example"
+        "middleware": "./proxy.ts",
+        "envExample": "./.env.example"
+    },
+    "paths": {
+        "db-orm": {
+            "config": ".",
+            "client": "<db>/<client>",
+            "schema": "<db>/<schema>"
+        },
+        "authentication": {
+            "server": "<lib>/auth.ts",
+            "client": "<lib>/auth.client.ts",
+            "api": "<apiRoot>/auth/[...all]/route.ts",
+            "middleware": "<middleware>",
+            "ui": "<components>/auth/*"
+        }
     },
     "mergerOrder": [
         "db-orm",
         "authentication",
         "payments"
-    ],
-    "paths": {
-        "db-orm": {
-            "config": ".",
-            "client": "src/db/<client>",
-            "schema": "src/db/<schema>"
-        }
-    }
+    ]
 }
